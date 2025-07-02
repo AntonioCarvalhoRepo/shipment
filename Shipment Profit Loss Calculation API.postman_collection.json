@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "b4935a1d-1915-4dda-894e-dc7fd0e5ec5e",
+		"name": "Shipment Profit Loss Calculation API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46394744",
+		"_collection_link": "https://tony-5011177.postman.co/workspace/Tony's-Workspace~a05af4d6-ca17-4f53-880c-f394d9a14d10/collection/46394744-b4935a1d-1915-4dda-894e-dc7fd0e5ec5e?action=share&source=collection_link&creator=46394744"
+	},
+	"item": [
+		{
+			"name": "Shipment Profit/Loss Calculation API",
+			"item": [
+				{
+					"name": "Get all Shipping Financial Entries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/financialData/0001",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"financialData",
+								"0001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcule Shiping Entry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"shipmentID\": \"0001\",\r\n  \"income\" : {\r\n    \"value\": 200.5\r\n  },\r\n  \"costs\" : {\r\n    \"cost\": 300,\r\n    \"additionalCost\": 10\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/financialData",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"financialData"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
