@@ -1,12 +1,12 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dachser.shipments.shipments.controller.FinancialDataController;
-import dachser.shipments.shipments.dto.CostRequestDTO;
-import dachser.shipments.shipments.dto.IncomeRequestDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import dachser.shipments.shipments.service.ShipmentService;
-import dachser.shipments.shipments.repository.FinancialDataRepository;
+import xyz.shipments.financial.controller.FinancialDataController;
+import xyz.shipments.financial.dto.CostRequestDTO;
+import xyz.shipments.financial.dto.IncomeRequestDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.service.ShipmentService;
+import xyz.shipments.financial.repository.FinancialDataRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;

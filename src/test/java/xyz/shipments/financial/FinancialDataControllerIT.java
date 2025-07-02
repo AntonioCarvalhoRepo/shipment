@@ -1,9 +1,9 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dachser.shipments.shipments.dto.CostRequestDTO;
-import dachser.shipments.shipments.dto.IncomeRequestDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.dto.CostRequestDTO;
+import xyz.shipments.financial.dto.IncomeRequestDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

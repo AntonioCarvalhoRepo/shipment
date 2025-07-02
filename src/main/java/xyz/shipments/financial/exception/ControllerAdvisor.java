@@ -1,4 +1,4 @@
-package dachser.shipments.shipments.exception;
+package xyz.shipments.financial.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

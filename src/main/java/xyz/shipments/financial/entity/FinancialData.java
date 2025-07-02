@@ -1,4 +1,4 @@
-package dachser.shipments.shipments.entity;
+package xyz.shipments.financial.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package dachser.shipments.shipments.dto;
+package xyz.shipments.financial.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

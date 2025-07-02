@@ -1,7 +1,7 @@
-package dachser.shipments.shipments.controller;
+package xyz.shipments.financial.controller;
 
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import dachser.shipments.shipments.service.ShipmentService;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.service.ShipmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

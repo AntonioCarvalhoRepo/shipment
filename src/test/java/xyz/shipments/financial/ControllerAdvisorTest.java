@@ -1,7 +1,7 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
-import dachser.shipments.shipments.exception.ControllerAdvisor;
-import dachser.shipments.shipments.exception.ShipmentNotFoundException;
+import xyz.shipments.financial.exception.ControllerAdvisor;
+import xyz.shipments.financial.exception.ShipmentNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

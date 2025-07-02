@@ -1,6 +1,6 @@
-package dachser.shipments.shipments.repository;
+package xyz.shipments.financial.repository;
 
-import dachser.shipments.shipments.entity.FinancialData;
+import xyz.shipments.financial.entity.FinancialData;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

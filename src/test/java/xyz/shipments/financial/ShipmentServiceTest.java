@@ -1,13 +1,13 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
-import dachser.shipments.shipments.dto.CostRequestDTO;
-import dachser.shipments.shipments.dto.FinancialDataResponseDTO;
-import dachser.shipments.shipments.dto.IncomeRequestDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import dachser.shipments.shipments.mapper.FinancialMapper;
-import dachser.shipments.shipments.repository.FinancialDataRepository;
-import dachser.shipments.shipments.entity.FinancialData;
-import dachser.shipments.shipments.service.ShipmentServiceImpl;
+import xyz.shipments.financial.dto.CostRequestDTO;
+import xyz.shipments.financial.dto.FinancialDataResponseDTO;
+import xyz.shipments.financial.dto.IncomeRequestDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.mapper.FinancialMapper;
+import xyz.shipments.financial.repository.FinancialDataRepository;
+import xyz.shipments.financial.entity.FinancialData;
+import xyz.shipments.financial.service.ShipmentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

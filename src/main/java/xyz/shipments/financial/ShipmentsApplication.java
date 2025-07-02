@@ -1,4 +1,4 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

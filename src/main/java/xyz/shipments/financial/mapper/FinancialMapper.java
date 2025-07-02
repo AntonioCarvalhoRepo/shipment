@@ -1,8 +1,8 @@
-package dachser.shipments.shipments.mapper;
+package xyz.shipments.financial.mapper;
 
-import dachser.shipments.shipments.dto.FinancialDataResponseDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import dachser.shipments.shipments.entity.FinancialData;
+import xyz.shipments.financial.dto.FinancialDataResponseDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.entity.FinancialData;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;

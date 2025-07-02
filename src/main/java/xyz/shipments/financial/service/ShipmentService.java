@@ -1,8 +1,7 @@
-package dachser.shipments.shipments.service;
+package xyz.shipments.financial.service;
 
-import dachser.shipments.shipments.dto.FinancialDataResponseDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import jakarta.validation.Valid;
+import xyz.shipments.financial.dto.FinancialDataResponseDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

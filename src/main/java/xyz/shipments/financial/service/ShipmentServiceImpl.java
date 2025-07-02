@@ -1,11 +1,11 @@
-package dachser.shipments.shipments.service;
+package xyz.shipments.financial.service;
 
-import dachser.shipments.shipments.dto.FinancialDataResponseDTO;
-import dachser.shipments.shipments.dto.ShipmentRequestDTO;
-import dachser.shipments.shipments.entity.FinancialData;
-import dachser.shipments.shipments.exception.ShipmentNotFoundException;
-import dachser.shipments.shipments.mapper.FinancialMapper;
-import dachser.shipments.shipments.repository.FinancialDataRepository;
+import xyz.shipments.financial.dto.FinancialDataResponseDTO;
+import xyz.shipments.financial.dto.ShipmentRequestDTO;
+import xyz.shipments.financial.entity.FinancialData;
+import xyz.shipments.financial.exception.ShipmentNotFoundException;
+import xyz.shipments.financial.mapper.FinancialMapper;
+import xyz.shipments.financial.repository.FinancialDataRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

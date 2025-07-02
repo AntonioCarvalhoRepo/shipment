@@ -1,7 +1,7 @@
-package dachser.shipments.shipments;
+package xyz.shipments.financial;
 
-import dachser.shipments.shipments.entity.FinancialData;
-import dachser.shipments.shipments.repository.FinancialDataRepository;
+import xyz.shipments.financial.entity.FinancialData;
+import xyz.shipments.financial.repository.FinancialDataRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
