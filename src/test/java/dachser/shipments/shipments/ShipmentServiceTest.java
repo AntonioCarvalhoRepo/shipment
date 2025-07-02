@@ -1,0 +1,90 @@
+package dachser.shipments.shipments;
+
+import dachser.shipments.shipments.dto.CostRequestDTO;
+import dachser.shipments.shipments.dto.FinancialDataResponseDTO;
+import dachser.shipments.shipments.dto.IncomeRequestDTO;
+import dachser.shipments.shipments.dto.ShipmentRequestDTO;
+import dachser.shipments.shipments.mapper.FinancialMapper;
+import dachser.shipments.shipments.repository.FinancialDataRepository;
+import dachser.shipments.shipments.entity.FinancialData;
+import dachser.shipments.shipments.service.ShipmentServiceImpl;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+@ExtendWith(MockitoExtension.class)
+class ShipmentServiceTest {
+
+    @Mock
+    private FinancialDataRepository financialDataRepository;
+
+    @Mock
+    private FinancialMapper financialMapper;
+
+    @InjectMocks
+    private ShipmentServiceImpl shipmentService;
+
+    @Test
+    /*
+     * Test for creating financial data.
+     * This test checks if the financial data is saved correctly in the repository.
+     */
+    void createFinancialData_CallsRepositorySave() {
+        IncomeRequestDTO incomeRequestDTO = new IncomeRequestDTO();
+        incomeRequestDTO.setValue(200.0);
+
+        CostRequestDTO costRequestDTO = new CostRequestDTO();
+        costRequestDTO.setCost(80.0);
+        costRequestDTO.setAdditionalCost(20.0);
+
+        ShipmentRequestDTO shipmentRequestDTO = new ShipmentRequestDTO();
+        shipmentRequestDTO.setShipmentID("0008"); // Use a unique ID for the test
+        shipmentRequestDTO.setIncome(incomeRequestDTO);
+        shipmentRequestDTO.setCosts(costRequestDTO);
+
+        FinancialData mockedFinancialData = new FinancialData();
+        when(financialMapper.mapShipmentRequestDTOtoEntity(any(ShipmentRequestDTO.class)))
+                .thenReturn(mockedFinancialData);
+
+        shipmentService.createFinancialData(shipmentRequestDTO);
+
+        verify(financialDataRepository, times(1)).save(any(FinancialData.class));
+    }
+
+    @Test
+    /*
+     * Test for retrieving financial data by shipment ID.
+     * This test checks if the service returns a list of FinancialDataResponseDTO when given a valid shipment ID.
+     */
+    void getFinancialDataByShipmentId_ReturnsDTOList() {
+        String shipmentId = "0008";
+        Double balance = 100.0;
+        FinancialData financialData = new FinancialData();
+        financialData.setShipmentID(shipmentId);
+        financialData.setBalance(balance);
+
+        // Mock the mapper to return a FinancialDataResponseDTO with the expected balance
+        FinancialDataResponseDTO responseDTO = new FinancialDataResponseDTO();
+        responseDTO.setProfitOrLoss(balance);
+
+        // Mock the mapper to return the expected response DTO
+        when(financialMapper.mapFinancialDataToResponseDTO(any(FinancialData.class)))
+                .thenReturn(responseDTO);
+
+        // Mock the repository to return a list containing the financial data
+        when(financialDataRepository.findByShipmentID(shipmentId)).thenReturn(List.of(financialData));
+
+        List<FinancialDataResponseDTO> result = shipmentService.getFinancialDataByShipmentId(shipmentId);
+
+        assertNotNull(result);
+        assertEquals(1, result.size());
+        assertEquals(balance, result.get(0).getProfitOrLoss());
+    }
+}
