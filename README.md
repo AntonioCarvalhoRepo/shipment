@@ -40,3 +40,4 @@ Response:
 ```
  - Uses Cache for Shipment Profit or Loss History.
  - Unit tests are included for service,controller and repository layer.
+ - Postman collection is available in the `shipments` folder.
