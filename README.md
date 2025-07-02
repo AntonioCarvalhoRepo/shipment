@@ -7,7 +7,7 @@ Database -> http://localhost:8080/h2
  - `data.sql` file contains sample data for testing.
 
 Endpoints:
-- `POST /financial`: Calculate profit or loss for a shipping transaction.
+- `POST /financialData`: Calculate profit or loss for a shipping transaction.
 
 Request Body:
 ```json
@@ -22,7 +22,7 @@ Request Body:
   }
 }
 ```
-- `GET /financial/{shipmentID}`: Retrieve profit or loss history for a specific shipment ID.
+- `GET /financialData/{shipmentID}`: Retrieve profit or loss history for a specific shipment ID.
 Response:
 ```json
 [
