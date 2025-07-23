@@ -1,11 +1,10 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import xyz.shipments.financial.controller.FinancialDataController;
 import xyz.shipments.financial.dto.CostRequestDTO;
 import xyz.shipments.financial.dto.FinancialDataResponseDTO;
 import xyz.shipments.financial.dto.IncomeRequestDTO;

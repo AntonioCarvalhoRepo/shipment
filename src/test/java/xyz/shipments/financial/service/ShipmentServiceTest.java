@@ -1,4 +1,4 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -11,7 +11,6 @@ import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import xyz.shipments.financial.mapper.FinancialMapper;
 import xyz.shipments.financial.repository.FinancialDataRepository;
 import xyz.shipments.financial.entity.FinancialData;
-import xyz.shipments.financial.service.ShipmentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

@@ -1,16 +1,14 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import xyz.shipments.financial.entity.FinancialData;
-import xyz.shipments.financial.repository.FinancialDataRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import java.util.List;
 import java.util.UUID;
 
 

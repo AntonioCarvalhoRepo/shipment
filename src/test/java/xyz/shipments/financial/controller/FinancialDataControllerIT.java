@@ -1,4 +1,4 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import xyz.shipments.financial.dto.CostRequestDTO;
