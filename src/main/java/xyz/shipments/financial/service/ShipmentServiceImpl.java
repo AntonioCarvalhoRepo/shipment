@@ -3,6 +3,7 @@ package xyz.shipments.financial.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 import xyz.shipments.financial.dto.FinancialDataResponseDTO;
 import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import xyz.shipments.financial.entity.FinancialData;
@@ -30,6 +31,7 @@ public class ShipmentServiceImpl implements ShipmentService {
     }
 
     @Override
+    @Transactional
     @CacheEvict(value = "financialDataCache", key = "#shipmentRequest.shipmentID")
     public void createFinancialData(ShipmentRequestDTO shipmentRequest) {
         financialDataRepository.save(financialMapper.mapShipmentRequestDTOtoEntity(shipmentRequest));
