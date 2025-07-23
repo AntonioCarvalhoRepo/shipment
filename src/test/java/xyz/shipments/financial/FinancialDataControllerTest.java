@@ -1,8 +1,13 @@
 package xyz.shipments.financial;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import xyz.shipments.financial.controller.FinancialDataController;
 import xyz.shipments.financial.dto.CostRequestDTO;
+import xyz.shipments.financial.dto.FinancialDataResponseDTO;
 import xyz.shipments.financial.dto.IncomeRequestDTO;
 import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import xyz.shipments.financial.service.ShipmentService;
@@ -17,6 +22,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.Collections;
 
 import static org.mockito.ArgumentMatchers.eq;
 
@@ -59,14 +66,17 @@ class FinancialDataControllerTest {
     }
 
     @Test
-    /* Test for retrieving financial data by shipment ID.
-     * This test checks if the endpoint returns a 200 OK status when valid shipment ID is provided.
-     */
-    void getFinancialDataByShipmentId_ReturnsOk() throws Exception {
-        Mockito.when(shipmentService.getFinancialDataByShipmentId(ArgumentMatchers.eq("123")))
-                .thenReturn(java.util.Collections.emptyList());
+    void getFinancialDataByShipmentId_ReturnsOk_WithPageable() throws Exception {
+        Pageable pageable = PageRequest.of(0, 10);
+        Page<FinancialDataResponseDTO> emptyPage = new PageImpl<>(Collections.emptyList(), pageable, 0);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/financialData/123"))
+        Mockito.when(shipmentService.getFinancialDataByShipmentId(ArgumentMatchers.eq("123"), ArgumentMatchers.eq(pageable)))
+                .thenReturn(emptyPage);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/financialData/123")
+                        .param("page", "0")
+                        .param("size", "10"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
+
 }
