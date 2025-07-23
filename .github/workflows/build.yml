@@ -16,11 +16,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK ${{ env.java-version }}
         uses: actions/setup-java@v3
         with:
           distribution: ${{ env.java-distribution }}
-          java-version: ${{ env.java-version}}
+          java-version: ${{ env.java-version }}
 
       - name: Build Project
         run: mvn clean install -DskipTests
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK ${{ env.java-version }}
         uses: actions/setup-java@v3
         with:
           distribution: ${{ env.java-distribution }}
