@@ -1,4 +1,4 @@
-name: Java Maven CI
+name: Shipment Tests
 
 on:
   push:
@@ -7,8 +7,7 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,13 +20,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build with Maven
-        run: mvn clean install
-
       - name: Run Tests
         run: mvn test
 
-      - name: Upload Test Results (optional)
+      - name: Upload Test Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
