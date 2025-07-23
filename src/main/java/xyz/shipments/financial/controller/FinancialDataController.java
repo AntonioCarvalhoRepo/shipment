@@ -1,5 +1,7 @@
 package xyz.shipments.financial.controller;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import xyz.shipments.financial.service.ShipmentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -48,8 +50,9 @@ public class FinancialDataController {
                     description = "Shipment not found",
                     content = @Content) })
     @GetMapping(path = "/{shipmentId}")
-    public ResponseEntity<?> getFinancialDataByShipmentId(@PathVariable String shipmentId){
+    public ResponseEntity<?> getFinancialDataByShipmentId(@PathVariable String shipmentId,@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
         log.debug("Fetching financial data for shipment ID: {}", shipmentId);
-        return ResponseEntity.status(HttpStatus.OK).body(userService.getFinancialDataByShipmentId(shipmentId));
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.status(HttpStatus.OK).body(userService.getFinancialDataByShipmentId(shipmentId,pageable));
     }
 }

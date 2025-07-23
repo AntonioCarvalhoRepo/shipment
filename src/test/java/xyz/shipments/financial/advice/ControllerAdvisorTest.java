@@ -1,4 +1,4 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.advice;
 
 import xyz.shipments.financial.exception.ControllerAdvisor;
 import xyz.shipments.financial.exception.ShipmentNotFoundException;

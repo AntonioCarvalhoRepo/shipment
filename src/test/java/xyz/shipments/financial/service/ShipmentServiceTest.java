@@ -1,5 +1,9 @@
-package xyz.shipments.financial;
+package xyz.shipments.financial.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import xyz.shipments.financial.dto.CostRequestDTO;
 import xyz.shipments.financial.dto.FinancialDataResponseDTO;
 import xyz.shipments.financial.dto.IncomeRequestDTO;
@@ -7,7 +11,6 @@ import xyz.shipments.financial.dto.ShipmentRequestDTO;
 import xyz.shipments.financial.mapper.FinancialMapper;
 import xyz.shipments.financial.repository.FinancialDataRepository;
 import xyz.shipments.financial.entity.FinancialData;
-import xyz.shipments.financial.service.ShipmentServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -70,21 +73,24 @@ class ShipmentServiceTest {
         financialData.setShipmentID(shipmentId);
         financialData.setBalance(balance);
 
-        // Mock the mapper to return a FinancialDataResponseDTO with the expected balance
         FinancialDataResponseDTO responseDTO = new FinancialDataResponseDTO();
         responseDTO.setProfitOrLoss(balance);
 
-        // Mock the mapper to return the expected response DTO
+        Pageable pageable = PageRequest.of(0, 10); // First page, 10 items per page
+
+        // Mock the mapper to return the expected DTO
         when(financialMapper.mapFinancialDataToResponseDTO(any(FinancialData.class)))
                 .thenReturn(responseDTO);
 
-        // Mock the repository to return a list containing the financial data
-        when(financialDataRepository.findByShipmentID(shipmentId)).thenReturn(List.of(financialData));
+        // Mock repository to return a Page containing the financial data
+        Page<FinancialData> financialDataPage = new PageImpl<>(List.of(financialData), pageable, 1);
+        when(financialDataRepository.findByShipmentID(shipmentId, pageable)).thenReturn(financialDataPage);
 
-        List<FinancialDataResponseDTO> result = shipmentService.getFinancialDataByShipmentId(shipmentId);
+        Page<FinancialDataResponseDTO> result = shipmentService.getFinancialDataByShipmentId(shipmentId, pageable);
 
         assertNotNull(result);
-        assertEquals(1, result.size());
-        assertEquals(balance, result.get(0).getProfitOrLoss());
+        assertEquals(1, result.getTotalElements());
+        assertEquals(balance, result.getContent().get(0).getProfitOrLoss());
+
     }
 }
